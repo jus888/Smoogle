@@ -5,9 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zoekresultaten</title>
+    <link rel="stylesheet" href="styles/search.css">    
   </head>
 
   <body>
-    <a href="index.html">Terug</a>
+    <div class="temp-header">
+        <p><a href="index.html">Terug</a></p>
+        <label for="json-file">Upload een json bestand afkomstig van <a href="https://woogle.wooverheid.nl/search?q=*">Woogle</a>. Voeg <i>&infobox=true</i> aan het einde van de url om de json te krijgen.</label>
+        <input type="file" id="json-file" accept=".json">        
+    </div>
+
+    <div class="result-container"></div>
+
+    <script src="scripts/search.js"></script>
   </body>
 </html>

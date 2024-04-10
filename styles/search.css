@@ -1,0 +1,17 @@
+.temp-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.result-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.result {
+    padding: 10px;
+    margin: 10px 20px;
+    border: 1px solid black;
+    flex: 1 1 0;
+}
