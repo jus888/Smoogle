@@ -4,7 +4,7 @@ const resultContainer = document.querySelector(".result-container");
 function createResultElement(resultData) {
     const resultElement = document.createElement("div");
     resultElement.classList.add("result");
-    resultElement.textContent = resultData["dc_title"];
+    resultElement.innerHTML = resultData["dc_title"];
     return resultElement;
 }
 

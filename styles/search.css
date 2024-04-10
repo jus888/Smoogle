@@ -1,7 +1,58 @@
+:root {
+    --theme-color: rgb(209, 64, 64);
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: hsl(0, 0%, 8%);
+}
+
 .temp-header {
     padding-bottom: 10px;
     margin-bottom: 20px;
     border-bottom: 1px solid gray;
+}
+
+.header {
+    margin: 10px 0;
+}
+
+em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+input[type="file"] {
+    display: block;
+}
+
+nav {
+    margin: 0 -10px;
+    color: white;
+    padding: 15px;
+    background-color: var(--theme-color);
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+
+nav > a {
+    font-weight: 600;
+}
+
+@media (max-width: 300px) {
+    nav {
+        display: block;
+    }
+    nav > a {
+        display: block;
+        padding: 10px 0;
+    }
+}
+
+.search-bar {
+    margin: 10px 0;
+    padding: 10px;
 }
 
 .result-container {
