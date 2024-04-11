@@ -11,8 +11,6 @@
   <body>
     <div class="temp-header">
         <p><a href="index.html">Terug</a></p>
-        <label for="json-file">Upload een json bestand afkomstig van <a href="https://woogle.wooverheid.nl/search?q=*">Woogle</a>. Voeg <i>&infobox=true</i> aan het einde van de url om de json te krijgen.</label>
-        <input type="file" id="json-file" accept=".json">        
     </div>
     <div class="header">
         <h1>Logo</h1>
@@ -24,7 +22,11 @@
         </nav>
     </div>
 
-    <input type="text" placeholder="Zoeken (niet functioneel)" class="search-bar">
+    <form>
+      <input type="text" name="q" placeholder="Zoeken" class="search-bar">
+      <input type="hidden" name="infobox" value="true">
+      <button type="button">Submit</button>
+    </form>
 
     <div class="result-container"></div>
 

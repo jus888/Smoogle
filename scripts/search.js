@@ -1,6 +1,3 @@
-const jsonInput = document.querySelector("#json-file");
-const resultContainer = document.querySelector(".result-container");
-
 function createResultElement(resultData) {
     const resultElement = document.createElement("div");
     resultElement.classList.add("result");
@@ -16,11 +13,18 @@ function populateResults(hitData) {
     });
 }
 
-jsonInput.addEventListener("change", () => {
-    const file = jsonInput.files[0];
-    const resultsText = file.text();
-    resultsText.then(text => {
-        const results = JSON.parse(text);
-        populateResults(results["hits"]);
-    });
+const searchForm = document.querySelector("form");
+const searchSubmit = document.querySelector("form > button");
+const resultContainer = document.querySelector(".result-container");
+
+searchSubmit.addEventListener("click", async function () {
+    const formData = new FormData(searchForm);
+    const queryString = new URLSearchParams(formData).toString();
+    const file = await fetch("https://woogle.wooverheid.nl/search?" + queryString, {
+        method: "get"
+    })
+
+    const resultsText = await file.text();
+    const results = JSON.parse(resultsText);
+    populateResults(results["hits"]);
 });

@@ -22,10 +22,6 @@ em {
     font-style: normal;
 }
 
-input[type="file"] {
-    display: block;
-}
-
 nav {
     margin: 0 -10px;
     color: white;
@@ -52,7 +48,6 @@ nav > a {
 
 .search-bar {
     margin: 10px 0;
-    padding: 10px;
 }
 
 .result-container {
