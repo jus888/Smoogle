@@ -4,31 +4,40 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoekresultaten</title>
+    <title>Smoogle</title>
     <link rel="stylesheet" href="styles/search.css">    
   </head>
 
   <body>
-    <div class="temp-header">
-        <p><a href="index.html">Terug</a></p>
-    </div>
-    <div class="header">
-        <h1>Logo</h1>
-        <nav>
-            <a>Pagina 1</a>
-            <a>Pagina 2</a>
-            <a>Lange Pagina 1</a>
-            <a>Pagina 3</a>
-        </nav>
+    <header class="flex-content-width">
+      <h1>Logo</h1>
+    </header>
+    <div class="navbar-bg">
+      <nav class="flex-content-width">
+        <a href="#">Pagina 1</a>
+        <a href="#">Pagina 2</a>
+        <a href="#">Lange Pagina 1</a>
+        <a href="#">Pagina 3</a>
+      </nav>
     </div>
 
-    <form>
-      <input type="text" name="q" placeholder="Zoeken" class="search-bar">
-      <input type="hidden" name="infobox" value="true">
-      <button type="button">Submit</button>
-    </form>
+    <main class="flex-content-width flex-row-container">
+      <form class="search-filters">
+        <input type="text" name="q" placeholder="Zoeken" class="search-bar">
+        <input type="hidden" name="infobox" value="true">
+        <button type="button">Submit</button>
+      </form>
+      <section class="search-results">
+        Resultaten verschijnen hier
+      </section>
+    </main>
 
-    <div class="result-container"></div>
+    <template>
+      <section class="result">
+        <h1 class="result-title">Title</h1>
+        <p>Description</p>
+      </section>
+    </template>
 
     <script src="scripts/search.js"></script>
   </body>
