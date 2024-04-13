@@ -35,18 +35,30 @@ body {
     gap: 2px;
     flex-wrap: nowrap;
     flex: auto;
+    margin-bottom: 10px;
 }
 
 .search-bar > input {
     flex: auto;
 }
 
-input[type="text"] {
-    min-width: 0;    
+input,
+button {
+    padding: 5px;
 }
 
-.search-flex-item {
+.search-container {
     flex: 2 1 auto;
+}
+
+.search-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.search-filters input {
+    max-width: 100%;
 }
 
 .search-results {

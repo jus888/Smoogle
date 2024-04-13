@@ -22,14 +22,17 @@
     </div>
 
     <main class="flex-content-width flex-container">
-      <div class="search-flex-item">
+      <div class="search-container">
         <form>
           <input type="hidden" name="infobox" value="true">
           <div class="flex-container search-bar">
-            <input name="q" class="search-bar" placeholder="Zoekterm">
+            <input name="q" placeholder="Zoekterm">
             <button type="button">Zoeken</button>
           </div>
-          <input name="publisher" list="woo-creators" placeholder="Aanbieder">
+          <div class="search-filters">
+            <input name="publisher" list="woo-creators" placeholder="Aanbieder">
+            <input name="type" list="woo-types" placeholder="Publicatietype">
+          </div>
         </form>
       </div>
       <section class="search-results">
@@ -1119,6 +1122,22 @@
     </option><option value="hûs en hiem, welstandsadvisering en monumentenzorg" data-value="so0890">
     </option><option value="regio Stedendriehoek" data-value="so0415">
     </option><option value="toelatingsorganisatie kwaliteitsborging bouw" data-value="zb000336">
+    </option>
+  </datalist>
+  <datalist id="woo-types">
+    <option value="1b-n - Nieuwsbericht" data-value="1b-n">
+    </option><option value="1b-t - Toespraak" data-value="1b-t">
+    </option><option value="1e - Bereikbaarheidsgegevens" data-value="1e">
+    </option><option value="1e-i - Verwijsindex" data-value="1e-i">
+    </option><option value="2b - Vergaderstuk Staten-Generaal" data-value="2b">
+    </option><option value="2c - Vergaderstuk decentrale overheid" data-value="2c">
+    </option><option value="2d - Agenda/besluitenlijst" data-value="2d">
+    </option><option value="2e - Advies" data-value="2e">
+    </option><option value="2e-b - Advies: Beslisnota" data-value="2e-b">
+    </option><option value="2f - Convenant" data-value="2f">
+    </option><option value="2i - Dossier na Woo/Wob-verzoek" data-value="2i">
+    </option><option value="2j - Onderzoek" data-value="2j">
+    </option><option value="2k - Beschikking" data-value="2k">
     </option>
   </datalist>  
 </html>

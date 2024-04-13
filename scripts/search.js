@@ -17,7 +17,8 @@ function populateResults(hitData) {
 }
 
 const dataLists = [
-    "publisher"
+    "publisher",
+    "type"
 ]
 
 function replaceListValuesFormData(formData) {
