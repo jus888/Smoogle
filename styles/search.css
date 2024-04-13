@@ -26,20 +26,19 @@ body {
 
 .flex-container {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     gap: 10px;
 }
 
 .search-bar {
     gap: 2px;
     flex-wrap: nowrap;
-    flex: auto;
     margin-bottom: 10px;
 }
 
 .search-bar > input {
     flex: auto;
+    min-width: 0;
 }
 
 input,
@@ -48,7 +47,8 @@ button {
 }
 
 .search-container {
-    flex: 2 1 auto;
+    flex: 1;
+    min-width: 160px;
 }
 
 .search-filters {
@@ -58,11 +58,13 @@ button {
 }
 
 .search-filters input {
-    max-width: 100%;
+    min-width: 0;
+    flex: 1;
 }
 
 .search-results {
-    flex: 7 1 400px;
+    flex: 1;
+    flex-basis: 360px;
     padding: 20px;
 }
 
