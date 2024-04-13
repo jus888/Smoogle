@@ -1,9 +1,12 @@
 function createResultElement(hitData, parent) {
     const resultElement = resultTemplate.content.cloneNode(true);
-    const title = resultElement.querySelector("h1");
+    const titleLink = resultElement.querySelector("h1 > a");
     const para = resultElement.querySelector("p");
-    title.innerHTML = hitData["dc_title"];
-    para.innerHTML = hitData["dc_description"] ?? "Geen omschrijving";
+    titleLink.innerHTML = hitData["dc_title"];
+    para.innerHTML = hitData["dc_description"] ?? "<i>Geen omschrijving</i>";
+    
+    const documentLink = "https://pid.wooverheid.nl/?pid=" + hitData["dc_identifier"];
+    titleLink.setAttribute("href", documentLink);    
 
     parent.appendChild(resultElement);
 }
