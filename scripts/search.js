@@ -19,7 +19,7 @@ function populateResults(hitData) {
 const dataLists = [
     "publisher",
     "type"
-]
+];
 
 function replaceListValuesFormData(formData) {
     for (const key of dataLists) {
@@ -53,10 +53,17 @@ async function search() {
 }
 
 const searchForm = document.querySelector("form");
+const searchTextInput = document.querySelector(".search-bar > input");
 const searchSubmit = document.querySelector(".search-bar > button");
 
 const resultTemplate = document.querySelector("template");
 const resultContainer = document.querySelector(".search-results");
 
 searchSubmit.addEventListener("click", search);
+searchTextInput.addEventListener("keyup", event => {
+    if (event.key === "Enter") {
+        search();
+    }
+});
+
 search();
