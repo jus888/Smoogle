@@ -21,12 +21,16 @@
       </nav>
     </div>
 
-    <main class="flex-content-width flex-row-container">
-      <form class="search-filters">
-        <input type="text" name="q" placeholder="Zoeken" class="search-bar">
-        <input type="hidden" name="infobox" value="true">
-        <button type="button">Submit</button>
-      </form>
+    <main class="flex-content-width flex-container">
+      <div class="search-flex-item">
+        <form>
+          <input type="hidden" name="infobox" value="true">
+          <div class="flex-container search-bar">
+            <input name="q" class="search-bar" placeholder="Zoekterm">
+            <button type="button">Zoeken</button>
+          </div>
+        </form>
+      </div>
       <section class="search-results">
         Resultaten verschijnen hier
       </section>
@@ -34,7 +38,7 @@
 
     <template>
       <section class="result">
-        <h1 class="result-title"><a class="result-title" href="#">Title</a></h1>
+        <h1 class="result-title"><a href="#">Title</a></h1>
         <p>Description</p>
       </section>
     </template>
