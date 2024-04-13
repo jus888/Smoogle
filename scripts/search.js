@@ -59,6 +59,11 @@ const searchSubmit = document.querySelector(".search-bar > button");
 const resultTemplate = document.querySelector("template");
 const resultContainer = document.querySelector(".search-results");
 
+const listInputs = document.querySelectorAll("input[list]");
+listInputs.forEach(input => {
+    input.addEventListener('focus', () => input.select());
+});
+
 searchSubmit.addEventListener("click", search);
 searchTextInput.addEventListener("keyup", event => {
     if (event.key === "Enter") {
