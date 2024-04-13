@@ -4,7 +4,7 @@ function createResultElement(hitData, parent) {
     const para = resultElement.querySelector("p");
     titleLink.innerHTML = hitData["dc_title"];
     para.innerHTML = hitData["dc_description"] ?? "<i>Geen omschrijving</i>";
-    
+
     const documentLink = "https://pid.wooverheid.nl/?pid=" + hitData["dc_identifier"];
     titleLink.setAttribute("href", documentLink);    
 
@@ -12,17 +12,11 @@ function createResultElement(hitData, parent) {
 }
 
 function populateResults(hitData) {
-    resultContainer.innerHTML = "";    
+    resultContainer.innerHTML = "";
     hitData.forEach(hit => createResultElement(hit, resultContainer))
 }
 
-const searchForm = document.querySelector("form");
-const searchSubmit = document.querySelector("form > button");
-
-const resultTemplate = document.querySelector("template");
-const resultContainer = document.querySelector(".search-results");
-
-searchSubmit.addEventListener("click", async function () {
+async function search() {
     const formData = new FormData(searchForm);
     const queryString = new URLSearchParams(formData).toString();
     const file = await fetch("https://woogle.wooverheid.nl/search?" + queryString, {
@@ -32,4 +26,13 @@ searchSubmit.addEventListener("click", async function () {
     const resultsText = await file.text();
     const results = JSON.parse(resultsText);
     populateResults(results["hits"]);
-});
+}
+
+const searchForm = document.querySelector("form");
+const searchSubmit = document.querySelector("form > button");
+
+const resultTemplate = document.querySelector("template");
+const resultContainer = document.querySelector(".search-results");
+
+searchSubmit.addEventListener("click", search);
+search();
