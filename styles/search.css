@@ -30,6 +30,17 @@ body {
     gap: 10px;
 }
 
+.navbar-bg {
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--theme-color);
+}
+
+.navbar > a {
+    color: white;
+    text-decoration: none;
+}
+
 .search-bar {
     gap: 2px;
     flex-wrap: nowrap;
@@ -62,10 +73,14 @@ button {
     flex: 1;
 }
 
-.search-results {
+.search-results-container {
     flex: 1;
     flex-basis: 360px;
+}
+
+.search-results {
     padding: 20px;
+    padding-bottom: 0;
 }
 
 .result-title {
@@ -100,13 +115,28 @@ button {
     word-wrap: break-word;
 }
 
-.navbar-bg {
-    width: 100%;
-    padding: 10px 0;
-    background-color: var(--theme-color);
+.result-pagination {
+    text-align: center;
 }
 
-nav > a {
-    color: white;
+.result-pagination > button {
+    background-color: lightgray;
     text-decoration: none;
+    text-align: center;
+    color: black;
+    padding: 12px 14px;
+    margin-top: 10px;
+    margin-right: -1px;
+    background-color: transparent;
+    border: lightgray solid 1px;
+}
+.result-pagination > button:hover {
+    background-color: lightgray;
+}
+
+#current-page {
+    background-color: var(--theme-color);
+    border-color: var(--theme-color);
+    position: relative;
+    color: white;
 }

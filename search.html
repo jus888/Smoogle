@@ -13,7 +13,7 @@
       <h1>Logo</h1>
     </header>
     <div class="navbar-bg">
-      <nav class="flex-content-width">
+      <nav class="flex-content-width navbar">
         <a href="#">Pagina 1</a>
         <a href="#">Pagina 2</a>
         <a href="#">Lange Pagina 1</a>
@@ -22,29 +22,33 @@
     </div>
 
     <main class="flex-content-width flex-container">
-      <div class="search-container">
-        <form>
-          <input type="hidden" name="infobox" value="true">
-          <div class="flex-container search-bar">
-            <input name="q" placeholder="Zoekterm">
-            <button type="button">Zoeken</button>
-          </div>
-          <div class="search-filters">
-            <input name="publisher" list="woo-creators" placeholder="Aanbieder">
-            <input name="type" list="woo-types" placeholder="Publicatietype">
-          </div>
-        </form>
+      <form class="search-container">
+        <input type="hidden" name="infobox" value="true">
+        <div class="flex-container search-bar">
+          <input name="q" placeholder="Zoekterm">
+          <button type="button">Zoeken</button>
+        </div>
+        <div class="search-filters">
+          <input name="publisher" list="woo-creators" placeholder="Aanbieder">
+          <input name="type" list="woo-types" placeholder="Publicatietype">
+        </div>
+      </form>
+
+      <div class="search-results-container">
+        <section class="search-results">
+          <!-- Code adds elements on search -->
+        </section>
+        <nav class="result-pagination">
+          <!-- Code adds elements on search -->
+        </nav>
       </div>
-      <section class="search-results">
-        Resultaten verschijnen hier
-      </section>
     </main>
 
     <template>
-      <section class="result">
+      <article class="result">
         <h1 class="result-title"><a href="#">Title</a></h1>
         <p>Description</p>
-      </section>
+      </article>
     </template>
 
     <script src="scripts/search.js"></script>
