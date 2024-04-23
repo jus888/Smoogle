@@ -168,6 +168,11 @@ button {
     border: 1px solid lightgray;
 }
 
+.result > p {
+    max-height: 8em;
+    overflow: auto;
+}
+
 .result-pagination {
     text-align: center;
     margin-top: 40px;

@@ -22,6 +22,9 @@ function createResultElement(hitData, parent) {
 
 function populateResults(hitData) {
     resultContainer.innerHTML = "";
+    if (hitData.length === 0) {
+        resultContainer.innerHTML = "<i>Geen resultaten gevonden voor deze zoekopdracht.</i>"
+    }
     hitData.forEach(hit => createResultElement(hit, resultContainer))
 }
 
@@ -43,7 +46,7 @@ function addPagination(results) {
     const start = Math.max(page - 5, 1) - Math.max(page + 5 - results.total_pages, 0);
     const paginationLength = Math.min(totalPages, 10);
     for (let i = 0; i < paginationLength; i++) {
-        const pageNum = start + i;
+        const pageNum = Math.max(start, 1) + i;
 
         const pageAnchor = document.createElement("button");
         pageAnchor.textContent = pageNum;
@@ -120,7 +123,6 @@ async function search(page = null, replace = false) {
     replaceListValuesFormData(formData);    
 
     if (page) {
-        console.log(page)
         formData.set("page", page);
     }
 
