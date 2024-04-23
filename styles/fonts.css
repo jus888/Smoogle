@@ -1,27 +1,11 @@
 @font-face {
     font-family: "Source Sans";
     font-style: normal;
-    font-weight: normal;
-    src: url("/fonts/SourceSans3-Regular.ttf");
-}
-
-@font-face {
-    font-family: "Source Sans";
-    font-style: normal;
-    font-weight: bold;
-    src: url("/fonts/SourceSans3-Bold.ttf");
+    src: url("/fonts/SourceSans3-VariableFont_wght.ttf");
 }
 
 @font-face {
     font-family: "Source Sans";
     font-style: italic;
-    font-weight: normal;
-    src: url("/fonts/SourceSans3-Italic.ttf");
-}
-
-@font-face {
-    font-family: "Source Sans";
-    font-style: italic;
-    font-weight: bold;
-    src: url("/fonts/SourceSans3-BoldItalic.ttf");
+    src: url("/fonts/SourceSans3-Italic-VariableFont_wght.ttf");
 }
