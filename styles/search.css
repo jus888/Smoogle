@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: "Source Sans", Arial, Helvetica, sans-serif;
     color: hsl(0, 0%, 8%);
     padding: 0;
     margin: 0;
@@ -89,7 +89,6 @@ button {
 }
 
 .result-title > a {
-    font-size: 1rem;
     font-weight: 400;
     text-decoration: none;
     color: var(--theme-color);
@@ -110,7 +109,6 @@ button {
 }
 
 .result {
-    font-size: 0.8rem;
     margin-bottom: 30px;
     word-wrap: break-word;
 }
