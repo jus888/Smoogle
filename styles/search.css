@@ -1,14 +1,21 @@
-* {
-    box-sizing: border-box;
+*,
+::before,
+::after {
+box-sizing: border-box;
 }
 
 :root {
-    --theme-color: rgb(209, 64, 64);
+    --theme-color: rgb(190, 34, 34);
+    --theme-color-selected: rgb(106, 38, 38);
+}
+
+html {
+    overflow-y: scroll;
 }
 
 body {
     font-family: "Source Sans", Arial, Helvetica, sans-serif;
-    color: hsl(0, 0%, 8%);
+    color: hsl(0, 0%, 20%);
     padding: 0;
     margin: 0;
 
@@ -17,34 +24,60 @@ body {
     align-items: center;
 }
 
-.flex-content-width {
-    max-width: min(450px + 40vw, 900px);
+.content-width {
+    max-width: min(550px + 40vw, 1200px);
     width: 100%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
 }
 
-.flex-container {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
+.logo {
+    padding: 16px 0;
 }
 
 .navbar-bg {
+    font-weight: 600;
     width: 100%;
-    padding: 10px 0;
     background-color: var(--theme-color);
+    margin-bottom: 20px;
 }
 
 .navbar > a {
     color: white;
     text-decoration: none;
+    display: inline-block;
+    padding: 16px 20px;
+}
+
+.navbar > a:hover {
+    background-color: var(--theme-color-selected);
+}
+
+#current-page,
+#current-page:hover {
+    color: black;
+    background-color: white;
+}
+
+.preface {
+    margin-bottom: 16px;
+}
+
+hr.solid {
+    border-top: 2px solid #bbb;
+    margin-bottom: 44px;
+}
+
+.filter-result-container {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 32px;
 }
 
 .search-bar {
     gap: 2px;
     flex-wrap: nowrap;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .search-bar > input {
@@ -54,18 +87,18 @@ body {
 
 input,
 button {
-    padding: 5px;
+    padding: 8px;
 }
 
 .search-container {
     flex: 1;
-    min-width: 160px;
+    min-width: 200px;
 }
 
 .search-filters {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
 }
 
 .search-filters input {
@@ -79,17 +112,15 @@ button {
 }
 
 .search-results {
-    padding: 20px;
     padding-bottom: 0;
 }
 
 .result-title {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     margin-top: 0;
 }
 
 .result-title > a {
-    font-weight: 400;
     text-decoration: none;
     color: var(--theme-color);
 }
@@ -97,6 +128,7 @@ button {
 .result-title > a:hover,
 .result-title > a:active {
     text-decoration: underline;
+    color: var(--theme-color-selected)
 }
 
 .result em {
@@ -105,16 +137,18 @@ button {
 }
 
 .result > p {
-    margin-top: 5px;
+    margin-top: 0;
 }
 
 .result {
-    margin-bottom: 30px;
-    word-wrap: break-word;
+    margin-bottom: 28px;
+    word-wrap: break-word; 
 }
 
 .result-pagination {
     text-align: center;
+    margin-top: 40px;
+    margin-bottom: 80px;
 }
 
 .result-pagination > button {
@@ -122,8 +156,7 @@ button {
     text-decoration: none;
     text-align: center;
     color: black;
-    padding: 12px 14px;
-    margin-top: 10px;
+    padding: 16px 16px;
     margin-right: -1px;
     background-color: transparent;
     border: lightgray solid 1px;
@@ -132,7 +165,7 @@ button {
     background-color: lightgray;
 }
 
-#current-page {
+#current-page-pagination {
     background-color: var(--theme-color);
     border-color: var(--theme-color);
     position: relative;

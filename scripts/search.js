@@ -48,7 +48,7 @@ function addPagination(results) {
         pageAnchor.textContent = pageNum;
 
         if (pageNum === page) {
-            pageAnchor.id ="current-page";
+            pageAnchor.id ="current-page-pagination";
         } else {
             pageAnchor.addEventListener("click", () => search(pageNum));            
         }
