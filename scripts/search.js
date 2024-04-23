@@ -1,6 +1,7 @@
 const searchForm = document.querySelector("form");
-const searchTextInput = document.querySelector(".search-bar > input");
-const searchSubmit = document.querySelector(".search-bar > button");
+const searchTextInput = document.querySelector(".search-bar");
+const searchFilterInputs = document.querySelectorAll(".filter-input")
+const searchSubmit = document.querySelector(".search-button");
 
 const resultTemplate = document.querySelector("template");
 const resultContainer = document.querySelector(".search-results");
@@ -64,6 +65,27 @@ function addPagination(results) {
     }
 }
 
+function setFilters() {
+    const searchParams = new URLSearchParams(window.location.search);
+    searchFilterInputs.forEach(input => {
+        if (searchParams.has(input.name)) {
+            const dataValue = searchParams.get(input.name);
+            if (dataValue === "") {
+                input.value = "";
+            } else {
+                input.value = dataValue;
+                if (dataLists.includes(input.name)) {
+                    const optionElement = document.querySelector(`option[data-value="${dataValue}"]`);
+                    input.value = optionElement.value;
+                }
+            }
+        }
+        else {
+            input.value = "";
+        }
+    });
+}
+
 const dataLists = [
     "publisher",
     "type"
@@ -86,10 +108,21 @@ function replaceListValuesFormData(formData) {
     }
 }
 
-async function search(page = 1) {
+function updatePage(resultsJson) {
+    const results = JSON.parse(resultsJson);    
+    populateResults(results.hits);
+    addPagination(results);
+    setFilters()
+}
+
+async function search(page = null, replace = false) {
     const formData = new FormData(searchForm);
-    formData.set("page", page);
-    replaceListValuesFormData(formData);
+    replaceListValuesFormData(formData);    
+
+    if (page) {
+        console.log(page)
+        formData.set("page", page);
+    }
 
     const queryString = new URLSearchParams(formData).toString();
     const file = await fetch("https://woogle.wooverheid.nl/search?" + queryString, {
@@ -97,21 +130,33 @@ async function search(page = 1) {
     });
 
     const resultsText = await file.text();
-    const results = JSON.parse(resultsText);
-    populateResults(results.hits);
-    addPagination(results);
+
+    if (replace) {
+        history.replaceState(resultsText, "", "search.html?" + queryString);
+    } else {
+        history.pushState(resultsText, "", "search.html?" + queryString);
+    }
+
+    updatePage(resultsText)
 }
+
+window.addEventListener("popstate", (event) => {
+    if (event.state) {
+        updatePage(event.state);
+    }
+});
 
 const listInputs = document.querySelectorAll("input[list]");
 listInputs.forEach(input => {
     input.addEventListener('focus', () => input.select());
 });
 
-searchSubmit.addEventListener("click", () => search());
+searchSubmit.addEventListener("click", () => search(1));
 searchTextInput.addEventListener("keyup", event => {
     if (event.key === "Enter") {
-        search();
+        search(1);
     }
 });
 
-search();
+setFilters();
+search(null, true);

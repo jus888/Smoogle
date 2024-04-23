@@ -93,16 +93,22 @@ button {
     border: 1px solid gray;
 }
 
-.search-bar {
+.search-bar-container {
     display: flex;
     gap: 2px;
     flex-wrap: nowrap;
     margin-bottom: 24px;
 }
 
-.search-bar > input {
+.filter-input {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.search-bar {
     flex: auto;
     min-width: 0;
+    margin-bottom: 0;
 }
 
 .search-button {
@@ -118,11 +124,6 @@ button {
 .search-container {
     flex: 1.2 1 0;
     min-width: 200px;
-}
-
-.filter-input {
-    width: 100%;
-    margin-bottom: 8px;
 }
 
 .search-results-container {
