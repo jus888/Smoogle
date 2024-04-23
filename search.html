@@ -27,13 +27,19 @@
     <main class="content-width filter-result-container">
       <form class="search-container">
         <input type="hidden" name="infobox" value="true">
-        <div class="filter-result-container search-bar">
+        <div class="search-bar">
           <input name="q" placeholder="Zoekterm">
-          <button type="button">Zoeken</button>
+          <button class="search-button" type="button">Zoeken</button>
         </div>
         <div class="search-filters">
-          <input name="publisher" list="woo-creators" placeholder="Aanbieder">
-          <input name="type" list="woo-types" placeholder="Publicatietype">
+          <label for="aanbieder">Aanbieder:</label>
+          <input class="filter-input" id="aanbieder" name="publisher" list="woo-creators">
+          <label for="publicatie-type">Publicatietype:</label>
+          <input class="filter-input" id="publicatie-type" name="type" list="woo-types">
+          <label for="vanaf-jaar">Vanaf Jaar:</label>
+          <input type="number" min="2000" max="2024" class="filter-input" id="vanaf-jaar" name="year-min">
+          <label for="tot-jaar">Tot Jaar:</label>
+          <input type="number" min="2000" max="2024" class="filter-input" id="tot-jaar" name="year-max">          
         </div>
       </form>
 
