@@ -92,6 +92,7 @@ for title, md_html, meta in zip(snake_titles, md_htmls, md_metas):
 
                 input_soup["value"] = set_value
                 input_soup["type"] = "hidden"
+                input_soup["class"] = []
                 label_soup = soup.css.select(f"label[for={input_soup['id']}]")[0]
                 label_soup["hidden"] = "hidden"
 

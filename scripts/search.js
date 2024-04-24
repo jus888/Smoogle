@@ -1,6 +1,6 @@
 const searchForm = document.querySelector("form");
 const searchTextInput = document.querySelector(".search-bar");
-const searchFilterInputs = document.querySelectorAll(".filter-input :not(input[hidden])")
+const searchFilterInputs = document.querySelectorAll(".filter-input")
 const searchSubmit = document.querySelector(".search-button");
 
 const resultTemplate = document.querySelector("template");
@@ -137,12 +137,12 @@ async function search(page = null, replace = false) {
 
     const resultsText = await file.text();
 
-    var documentName = location.href.split("/").slice(-1)[0];
+    const path = location.pathname;
 
     if (replace) {
-        history.replaceState(resultsText, "", `${documentName}?` + queryString);
+        history.replaceState(resultsText, "", `${path}?` + queryString);
     } else {
-        history.pushState(resultsText, "", `${documentName}?` + queryString);
+        history.pushState(resultsText, "", `${path}?` + queryString);
     }
 
     updatePage(resultsText)
