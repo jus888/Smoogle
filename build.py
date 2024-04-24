@@ -37,7 +37,7 @@ for path in glob.iglob("markdown/*.md"):
 
 snake_titles = [meta['title'][0].lower().replace(" ", "-") for meta in md_metas]
 for snake_title, meta in zip(snake_titles, md_metas):
-    nav_soups.append(BeautifulSoup(f"<a href=/{snake_title}.html>{meta['title'][0]}</a>", "html.parser"))
+    nav_soups.append(BeautifulSoup(f"<a href={snake_title}.html>{meta['title'][0]}</a>", "html.parser"))
 
 with open("index.html", "r+") as file:
     soup = BeautifulSoup(file, "html.parser")
