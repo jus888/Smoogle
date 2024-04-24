@@ -1,6 +1,6 @@
 const searchForm = document.querySelector("form");
 const searchTextInput = document.querySelector(".search-bar");
-const searchFilterInputs = document.querySelectorAll(".filter-input")
+const searchFilterInputs = document.querySelectorAll(".filter-input :not(input[hidden])")
 const searchSubmit = document.querySelector(".search-button");
 
 const resultTemplate = document.querySelector("template");
@@ -15,7 +15,7 @@ function createResultElement(hitData, parent) {
     para.innerHTML = hitData.dc_description ?? "<i>Geen omschrijving</i>";
 
     const documentLink = "https://pid.wooverheid.nl/?pid=" + hitData.dc_identifier;
-    titleLink.setAttribute("href", documentLink);    
+    titleLink.setAttribute("href", documentLink);
 
     parent.appendChild(resultElement);
 }
@@ -101,6 +101,10 @@ function replaceListValuesFormData(formData) {
             continue;
         }
 
+        if (document.querySelector(`input[name="${key}"][type="hidden"]`)) {
+            continue;
+        }
+
         const optionElement = document.querySelector(`option[value="${value}"]`);
         if (!optionElement) {
             formData.delete(key);
@@ -133,10 +137,12 @@ async function search(page = null, replace = false) {
 
     const resultsText = await file.text();
 
+    var documentName = location.href.split("/").slice(-1)[0];
+
     if (replace) {
-        history.replaceState(resultsText, "", "search.html?" + queryString);
+        history.replaceState(resultsText, "", `${documentName}?` + queryString);
     } else {
-        history.pushState(resultsText, "", "search.html?" + queryString);
+        history.pushState(resultsText, "", `${documentName}?` + queryString);
     }
 
     updatePage(resultsText)

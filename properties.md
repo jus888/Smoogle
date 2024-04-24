@@ -1,0 +1,4 @@
+---
+--theme-color: rgb(190, 34, 34)
+--theme-color-selected: "#6a2626"
+---

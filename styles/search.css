@@ -4,11 +4,6 @@
 box-sizing: border-box;
 }
 
-:root {
-    --theme-color: rgb(190, 34, 34);
-    --theme-color-selected: rgb(106, 38, 38);
-}
-
 html {
     overflow-y: scroll;
 }
@@ -38,7 +33,7 @@ body {
 .navbar-bg {
     font-weight: 600;
     width: 100%;
-    background-color: var(--theme-color);
+    background-color: var(--theme-color, gray);
     margin-bottom: 20px;
 }
 
@@ -50,7 +45,7 @@ body {
 }
 
 .navbar > a:hover {
-    background-color: var(--theme-color-selected);
+    background-color: var(--theme-color-selected, black);
 }
 
 #current-page,
@@ -112,13 +107,13 @@ button {
 }
 
 .search-button {
-    border-color: var(--theme-color);
-    background-color: var(--theme-color);
+    border-color: var(--theme-color, gray);
+    background-color: var(--theme-color, black);
     color: white;
 }
 .search-button:hover {
-    border-color: var(--theme-color-selected);    
-    background-color: var(--theme-color-selected);
+    border-color: var(--theme-color-selected, gray);
+    background-color: var(--theme-color-selected, black);
 }
 
 .search-container {
@@ -194,8 +189,8 @@ button {
 }
 
 #current-page-pagination {
-    background-color: var(--theme-color);
-    border-color: var(--theme-color);
+    background-color: var(--theme-color, black);
+    border-color: var(--theme-color, black);
     position: relative;
     color: white;
 }
